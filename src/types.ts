@@ -1,4 +1,6 @@
-export interface User{
+import { type } from "os"
+
+export type TUser = {
     id: string,
     name: string,
     email: string,
@@ -7,7 +9,7 @@ export interface User{
     createdAt: string
 }
 
-export interface Post{
+export type TPost = {
     id: string,
     creatorId: string,
     content: string,

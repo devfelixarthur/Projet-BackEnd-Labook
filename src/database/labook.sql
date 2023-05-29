@@ -1,4 +1,5 @@
--- Active: 1683073586639@@127.0.0.1@3306
+-- Active: 1685316606652@@127.0.0.1@3306
+
 CREATE TABLE users (
   id TEXT PRIMARY KEY UNIQUE NOT NULL,
   name TEXT NOT NULL,
@@ -17,6 +18,8 @@ CREATE TABLE posts (
   created_at TEXT NOT NULL DEFAULT (datetime()),
   updated_at TEXT NOT NULL DEFAULT (datetime()),
   FOREIGN KEY (creator_id) REFERENCES users(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 CREATE TABLE likes_dislikes (
