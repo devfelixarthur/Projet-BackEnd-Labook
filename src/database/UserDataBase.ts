@@ -1,25 +1,26 @@
-import { User } from "../types";
-import { BaseDataBase } from "./BaseDataBase";
+import { UserDB } from "../models/User";
+import { BaseDatabase } from "./BaseDataBase";
 
-export class UserDataBase extends BaseDataBase{
-    public static TABLE_USERS = "users"
+export class UserDatabase extends BaseDatabase {
+  public static TABLE_USERS = "users"
 
-    public async findUsers (q:string | undefined) : Promise<User[]> {
-        let userDb
-        if(q){
-            const result: User[] = await BaseDataBase
-            .connection(UserDataBase.TABLE_USERS)
-            .where("name", "LIKE", `%${q}%`)
+  public insertUser = async (
+    userDB: UserDB
+  ): Promise<void> => {
+    await BaseDatabase
+      .connection(UserDatabase.TABLE_USERS)
+      .insert(userDB)
+  }
 
-            userDb = result
-        }else{
-            const result: User[] = await BaseDataBase.connection(UserDataBase.TABLE_USERS)
-            userDb = result
-        }
-        return userDb
-    }
+  public findUserByEmail = async (
+    email: string
+  ): Promise<UserDB | undefined> => {
+    // const [userDB]: Array<UserDB | undefined> = ...
+    const [userDB] = await BaseDatabase
+      .connection(UserDatabase.TABLE_USERS)
+      .select()
+      .where({ email })
 
-    public async insertUser (user: User): Promise<void>{
-        await BaseDataBase.connection(UserDataBase.TABLE_USERS).insert(user)
-    }
+    return userDB as UserDB | undefined
+  }
 }
