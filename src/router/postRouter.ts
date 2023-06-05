@@ -11,9 +11,8 @@ const postController = new PostController(
   new PostBusiness(new PostDataBase(), new IdGenerator(), new TokenManager())
 );
 
-postRouter.post("/", postController.createPost);
 postRouter.get("/", postController.getPost);
+postRouter.post("/", postController.createPost);
 postRouter.put("/:id", postController.editPost);
-postRouter.delete("/:id", postController.deletePost);
-
 postRouter.put("/:id/like", postController.likeOrDislikePost);
+postRouter.delete("/:id", postController.deletePost);
