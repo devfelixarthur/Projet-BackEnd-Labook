@@ -6,10 +6,10 @@ export interface LikeOrDislakePostInputDTO{
     like: Boolean,
 }
 
-export type LikeOrDislakePostOutputDTO = undefined
+export type LikeOrDislikePostOutputDTO = undefined
 
 
-export const LikeOrDislakePostSchema = z.object({
+export const LikeOrDislikePostSchema = z.object({
     postId: z.string().min(1),
     token: z.string().min(1),
     like: z.boolean()

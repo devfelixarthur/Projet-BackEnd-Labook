@@ -22,6 +22,8 @@ CREATE TABLE posts (
     ON DELETE CASCADE
 );
 
+SELECT * from likes_dislikes;
+
 CREATE TABLE likes_dislikes (
   user_id TEXT NOT NULL,
   post_id TEXT NOT NULL,

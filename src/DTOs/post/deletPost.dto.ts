@@ -2,7 +2,7 @@ import z from 'zod'
 
 export interface DeletePostInputDTO{
     token: string,
-    idToDelete: String,
+    idToDelete: string,
 }
 
 export type DeletePostOutputDTO = undefined
