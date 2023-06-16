@@ -110,4 +110,4 @@ Agora você pode utilizar a API Labook para criar, editar, excluir e interagir c
 
 ## Status do Projeto  🚧
 
-Em correção. 
+Concluído.🙏👨‍💻
